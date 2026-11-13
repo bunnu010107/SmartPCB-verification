@@ -1,10 +1,11 @@
-<<<<<<< HEAD
-# SmartPCB – ARM-Based Intelligent PCB Quality Inspection
+cat > README.md <<'EOF'
+# SmartPCB - ARM-Based Intelligent PCB Quality Inspection
 
 ## Project Overview
 
-SmartPCB is an ARM-based edge AI application designed to detect
-PCB manufacturing defects and assist quality-control operators.
+SmartPCB is an ARM-based edge AI application designed to detect PCB manufacturing defects and assist quality-control operators.
+
+The objective is to develop a lightweight inspection pipeline that runs on an ARM-based Android smartphone.
 
 ## Main Objectives
 
@@ -15,17 +16,22 @@ PCB manufacturing defects and assist quality-control operators.
 - Explain inspection results using a local language model.
 - Deploy the inference pipeline on an ARM-based Android device.
 
-## Development Environment
+## Technology Stack
 
-- Ubuntu 22.04 through WSL2
 - Python 3.10
 - OpenCV
 - NumPy
+- PyTorch
+- Git and GitHub
+- Android ARM deployment
+
+## Development Environment
+
+- Ubuntu 22.04 through WSL2
+- Python virtual environment
 - Git and GitHub
 
-## Project Status
+## Current Project Status
 
-Phase 1: Development environment setup.
-=======
-# SmartPCB-ARM-Edge-AI
->>>>>>> origin/main
+Phase 1: Development environment setup and initial PCB image-loading module.
+EOF
