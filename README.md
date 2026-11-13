@@ -1,4 +1,3 @@
-cat > README.md <<'EOF'
 # SmartPCB - ARM-Based Intelligent PCB Quality Inspection
 
 ## Project Overview
@@ -34,4 +33,3 @@ The objective is to develop a lightweight inspection pipeline that runs on an AR
 ## Current Project Status
 
 Phase 1: Development environment setup and initial PCB image-loading module.
-EOF
