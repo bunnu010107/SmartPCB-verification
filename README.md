@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SmartPCB – ARM-Based Intelligent PCB Quality Inspection
 
 ## Project Overview
@@ -25,3 +26,6 @@ PCB manufacturing defects and assist quality-control operators.
 ## Project Status
 
 Phase 1: Development environment setup.
+=======
+# SmartPCB-ARM-Edge-AI
+>>>>>>> origin/main
