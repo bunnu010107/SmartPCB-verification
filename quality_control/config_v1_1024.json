@@ -1,0 +1,8 @@
+{
+  "model_name": "smartpcb_v1_1024_grouped",
+  "imgsz": 1024,
+  "weights_sha256": "eb808b29593212a2671c830400b2a3c2f7d66bd0d28772f4466481922205e9fa",
+  "class_names": ["missing_pad", "mouse_bite", "open_circuit", "short", "spur", "spurious_copper"],
+  "hold_conf": 0.50,
+  "review_conf": 0.40
+}
