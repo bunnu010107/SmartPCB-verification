@@ -71,6 +71,7 @@ def parse_args():
     p.add_argument("--weights", required=True)
     p.add_argument("--imgsz", type=int, required=True)
     p.add_argument("--split", choices=["val", "test"], default="val")
+    p.add_argument("--data-dir", default=str(SPLIT_DIR), help="folder with images/ and labels/ (default: grouped split)")
     return p.parse_args()
 
 
@@ -81,8 +82,8 @@ def main():
         print("NOTE: test split - report only, do not tune thresholds on it.")
 
     model = YOLO(str(Path(a.weights).resolve()))
-    label_dir = SPLIT_DIR / "labels" / a.split
-    images = sorted((SPLIT_DIR / "images" / a.split).glob("*.jpg"))
+    label_dir = Path(a.data_dir) / "labels" / a.split
+    images = sorted((Path(a.data_dir) / "images" / a.split).glob("*.jpg"))
 
     # Predict once at a low confidence; thresholds are applied afterwards.
     data = []

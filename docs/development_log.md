@@ -21,3 +21,8 @@
 - Detections below 0.40 are ~80% false alarms; 0.40-0.50 about 50% real; >=0.60 about 95% real.
 - QC v1 (quality_control/rules.py): HOLD >= 0.50, REVIEW 0.40-0.50, PASS otherwise. No severity yet.
 - Limit: dataset has no clean boards, so false alarms on good boards are unmeasured.
+
+## 2026-11-19 - Phone-like degradation test (frozen 1024 model, val copies, labels unchanged)
+- mAP50-95: control 0.694, color -0.027, blur -0.003, noise +0.001, glare 0.000, jpeg -0.005, all -0.036.
+- Under 'all': recall 0.825 -> 0.750; mouse_bite 0.716 -> 0.585, spur 0.797 -> 0.667. Precision steady.
+- Proxy only: no geometric change, mild blur, no real boards or phone photos.
