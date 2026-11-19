@@ -31,7 +31,7 @@ def main():
     weights = Path(a.weights).resolve()
     # Fixed input size, float32, opset 17 (widely supported by mobile runtimes).
     exported = YOLO(str(weights)).export(
-        format="onnx", imgsz=a.imgsz, opset=17, simplify=True, dynamic=False, half=False, device="cpu"
+        format="onnx", imgsz=a.imgsz, opset=17, simplify=True, dynamic=False, device="cpu"
     )
     onnx_path = Path(exported)
     print("\nexported:", onnx_path)

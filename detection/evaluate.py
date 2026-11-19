@@ -1,8 +1,9 @@
-"""Evaluate a trained YOLO26n-OBB model on the val or test split of the grouped dataset.
+"""Evaluate a trained YOLO26n-OBB model on the val or test split of a dataset.
 
 Usage (from the project root):
     python detection/evaluate.py --weights detection/weights/smartpcb_v1_1024_grouped.pt \
         --imgsz 1024 --split val --name check_val_1024
+Optional: --data path/to/data.yaml   (default: the grouped split)
 """
 import argparse
 import hashlib
@@ -13,7 +14,7 @@ import torch
 from ultralytics import YOLO
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA_YAML = ROOT / "datasets" / "processed" / "v2_obb_grouped" / "data.yaml"
+DEFAULT_DATA = ROOT / "datasets" / "processed" / "v2_obb_grouped" / "data.yaml"
 EVAL_DIR = ROOT / "runs" / "eval"
 
 
@@ -31,6 +32,7 @@ def parse_args():
     p.add_argument("--imgsz", type=int, required=True, help="use the size the model was trained at")
     p.add_argument("--split", choices=["val", "test"], required=True)
     p.add_argument("--name", required=True, help="output folder name under runs/eval")
+    p.add_argument("--data", default=str(DEFAULT_DATA), help="dataset yaml (default: grouped split)")
     return p.parse_args()
 
 
@@ -38,10 +40,11 @@ def main():
     a = parse_args()
     torch.set_num_threads(4)
     weights = Path(a.weights).resolve()
+    data = Path(a.data).resolve()
 
     model = YOLO(str(weights))
     metrics = model.val(
-        data=str(DATA_YAML), split=a.split, imgsz=a.imgsz,
+        data=str(data), split=a.split, imgsz=a.imgsz,
         batch=2, workers=0, device="cpu",
         plots=True, project=str(EVAL_DIR), name=a.name, exist_ok=False,
     )
@@ -49,7 +52,7 @@ def main():
     result = {
         "weights": str(weights),
         "weights_sha256": sha256(weights),
-        "data": str(DATA_YAML),
+        "data": str(data),
         "split": a.split,
         "imgsz": a.imgsz,
         "overall": {k: float(v) for k, v in metrics.results_dict.items()},
