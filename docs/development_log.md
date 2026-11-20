@@ -26,3 +26,8 @@
 - mAP50-95: control 0.694, color -0.027, blur -0.003, noise +0.001, glare 0.000, jpeg -0.005, all -0.036.
 - Under 'all': recall 0.825 -> 0.750; mouse_bite 0.716 -> 0.585, spur 0.797 -> 0.667. Precision steady.
 - Proxy only: no geometric change, mild blur, no real boards or phone photos.
+
+## 2026-11-20 - On-device benchmark (Alcatel T519H, Termux, ONNX Runtime 1.32.0 CPU, random input, model only)
+- 640 px: 1 thread 345 ms, 2 threads 189 ms, 4 threads 228 ms (RSS 145 MB).
+- 1024 px: 1 thread 988 ms, 2 threads 569 ms, 4 threads 589 ms (RSS 249 MB). MemAvailable about 1.13 GiB.
+- Two threads fastest (two Cortex-A76 cores); no clear slowdown in 20 runs. Consolidated numbers in docs/results_summary.md.
