@@ -1,25 +1,42 @@
+# Android Studio and Gradle
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
-
-# Kotlin and generated APK files
+.gradle/
 .kotlin/
+.idea/
+local.properties
+/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+**/build/
 *.apk
 
-# Android build outputs
-**/build/
+# Python environments and cache
+.venv/
+venv/
+__pycache__/
+*.py[cod]
 
-# Android Studio IDE files
-.idea/
+# Secrets and environment files
+.env
+
+# Model files
+*.pt
+*.pth
+*.onnx
+*.pte
+
+# Keep the Android application model
+!app/src/main/assets/smartpcb_model.onnx
+
+# Training outputs and datasets
+runs/
+datasets/raw/
+datasets/processed/
+
+# Databases
+*.db
+*.sqlite3
+
+# Operating system files
+.DS_Store
